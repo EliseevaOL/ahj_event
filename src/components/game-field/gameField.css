@@ -1,0 +1,27 @@
+.field-list {
+    background-color: rgb(20, 238, 20);
+    border: 15px solid rgb(29, 27, 27);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: -1;
+    margin-inline: auto;
+    inset-inline: 0;
+    inset-block-start: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: calc(400px + (3px * 4) * 2);
+}
+
+.game-cell {
+    background-color: rgb(217, 247, 217);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+    list-style: none;
+    cursor: url("../../img//hummer.png"), auto;
+}
+
+.game-cell:active {
+    cursor: url("../../img//hummer.png"), auto;
+}
