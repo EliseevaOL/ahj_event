@@ -1,17 +1,25 @@
-import GameField from "../components/game-field/GameField";
-import GamePlay from "../components/game-play/GamePlay";
-import GameState from "../components/game-state/GameState";
-import Goblin from "../components/goblin/Goblin";
+// TODO: write code here
 
-document.addEventListener("DOMContentLoaded", () => {
-  const gameField = new GameField(4);
-  const gameState = new GameState();
-  const gamePlay = new GamePlay(gameState);
-  const goblin = new Goblin(".game-field", gameState, gamePlay);
+import Goblin from "./Goblin";
 
-  () => {
-    goblin;
-  };
+import GameState from "./GameState";
 
-  gameField.createField();
-});
+Goblin.createField();
+
+setInterval(() => {
+  if (!GameState.paused) {
+    Goblin.refreshGrid();
+    GameState.chanceUpdate();
+    GameState.chances--;
+  }
+}, 1000);
+
+document.addEventListener("click", clicklHandeler);
+
+function clicklHandeler(e) {
+  if (e.target.tagName === "IMG") {
+    GameState.hit();
+  } else {
+    GameState.miss();
+  }
+}
